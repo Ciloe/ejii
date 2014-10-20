@@ -1,0 +1,446 @@
+
+html {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+body {
+    background: none no-repeat scroll 50% 50% / cover #4d4646;
+    color: #fff;
+    display: table-cell;
+    font: 300 20px/1.4 Roboto,"Open Sans",Helvetica,Arial,sans-serif;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.66);
+    vertical-align: middle;
+}
+.background-container {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+.background-vignette, .background-noise {
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.background-vignette {
+    background-image: radial-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 100%);
+}
+.background-noise {
+    background: url("data:image/png;base64,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") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    opacity: 0.85;
+}
+a {
+    color: #32a7d3;
+}
+a:hover, a:focus {
+    color: #2588ad;
+}
+.content {
+    padding: 40px 0;
+    position: relative;
+}
+.header {
+    font-size: 80px;
+    font-weight: 100;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+.description {
+    margin-bottom: 60px;
+}
+.countdown {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    padding: 30px 0 45px;
+}
+.countdown-label {
+    font-size: 24px;
+    margin-top: 10px;
+    text-align: center;
+}
+.countdown-number {
+    font-size: 124px;
+    font-weight: 100;
+    line-height: 1;
+    text-shadow: none;
+}
+.form-and-links-container {
+    overflow: hidden;
+    padding-bottom: 25px;
+}
+.subscription-form {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0 15px 15px;
+    position: relative;
+}
+.subscription-form-email {
+    background: none repeat scroll 0 0 #fff;
+    border: 0 none;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #222;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    height: 50px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0 12px;
+    text-shadow: none;
+    transition: none 0s ease 0s ;
+    vertical-align: top;
+    width: 450px;
+}
+.subscription-form-email:focus {
+    border-style: solid;
+    border-width: 3px 0 3px 3px;
+    box-shadow: none;
+    color: #222;
+    outline: medium none;
+    padding: 0 12px 0 9px;
+}
+.subscription-form-email:invalid:focus:invalid {
+    box-shadow: none;
+}
+@media ?screen {
+.subscription-form-email {
+    padding-top: 11px;
+}
+.subscription-form-email:focus {
+    padding-top: 8px;
+}
+}
+:-moz-placeholder {
+    color: #777;
+}
+*::-moz-placeholder {
+    color: #777;
+}
+.subscription-form-submit {
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    height: 50px;
+    padding: 0;
+    text-shadow: none;
+    transition: all 0.15s ease 0s;
+    vertical-align: top;
+}
+.subscription-form-submit:hover, .subscription-form-submit:focus, .subscription-form-submit:active, .subscription-form-submit:focus:active {
+    color: #fff;
+    outline: medium none;
+}
+.subscription-form-submit {
+    margin-left: 0 !important;
+    width: 120px;
+}
+.subscription-form-tooltip {
+    box-sizing: border-box;
+    left: 50%;
+    margin: -5px 0 0;
+    opacity: 0;
+    padding: 8px 15px;
+    position: absolute;
+    text-shadow: none;
+    top: 120%;
+    white-space: nowrap;
+    z-index: 1;
+}
+.subscription-form-tooltip:before {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: transparent;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 8px 8px;
+    content: "";
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    position: absolute;
+    top: 0;
+}
+.subscription-form-tooltip.error {
+    background: none repeat scroll 0 0 #d44032;
+    color: #fff;
+}
+.subscription-form-tooltip.error:before {
+    border-bottom-color: #d44032;
+}
+.subscription-form-tooltip.success {
+    background: none repeat scroll 0 0 #00b159;
+    color: #fff;
+}
+.subscription-form-tooltip.success:before {
+    border-bottom-color: #00b159;
+}
+[class^="icon-"], [class*=" icon-"] {
+    background: none repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: auto;
+    line-height: 1;
+    margin: 0;
+    vertical-align: middle;
+    width: auto;
+}
+.social-links {
+    font-size: 0;
+    margin-top: 50px;
+}
+.social-links > a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 28px;
+    height: 50px;
+    line-height: 54px;
+    margin: 6px;
+    text-decoration: none;
+    text-shadow: none;
+    transition: all 0.3s ease 0s;
+    width: 50px;
+}
+.social-links > a:hover, .social-links > a:focus {
+    transform: rotate(360deg);
+}
+@media (max-width: 1200px) {
+.background-container {
+    display: none;
+}
+}
+@media (max-width: 979px) {
+.header {
+    font-size: 64px;
+}
+.countdown {
+    padding: 20px 0 25px;
+}
+.countdown-number {
+    font-size: 96px;
+}
+.subscription-form-email {
+    width: 306px;
+}
+}
+@media (max-width: 767px) {
+body {
+    padding: 20px;
+}
+body, .subscription-form-email, .subscription-form-submit {
+    font-size: 18px;
+}
+.header {
+    font-size: 56px;
+}
+.countdown-item {
+    float: left;
+    margin: 20px 0;
+    width: 50%;
+}
+.countdown-number {
+    font-size: 80px;
+}
+.countdown-label {
+    margin-top: 5px;
+}
+.subscription-form {
+    padding: 0 0 35px;
+}
+.subscription-form-email {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 8px;
+    width: 310px;
+}
+.subscription-form-email:focus {
+    padding: 0 8px 0 5px;
+}
+.subscription-form-submit {
+    height: 40px;
+    width: 100px;
+}
+.subscription-form-tooltip {
+    margin-top: -25px;
+    padding: 4px 10px;
+    white-space: normal;
+}
+.social-links > a {
+    font-size: 24px;
+    height: 40px;
+    line-height: 42px;
+    width: 40px;
+}
+}
+@media (max-width: 550px) {
+.subscription-form, .subscription-form .input-group, .subscription-form .subscription-form-email, .subscription-form .input-group-btn {
+    box-sizing: border-box;
+    display: block;
+    float: none;
+}
+.subscription-form .input-group-btn, .subscription-form .subscription-form-submit {
+    width: 100%;
+}
+.subscription-form .subscription-form-email {
+    margin-bottom: 15px;
+}
+.subscription-form .subscription-form-email:focus {
+    border-right-width: 3px;
+}
+}
+.theme-fire {
+    background-image: url("../img/fire.shader-bg.jpg");
+}
+.theme-fire .subscription-form-email:focus {
+    border-color: #d44032;
+}
+.theme-fire .subscription-form-submit {
+    background: none repeat scroll 0 0 #d44032;
+}
+.theme-fire .subscription-form-submit:hover, .theme-fire .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #c33629;
+}
+.theme-fire .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #a62e23;
+}
+.theme-fire .social-links > a:hover, .theme-fire .social-links > a:focus {
+    background: none repeat scroll 0 0 #d44032;
+}
+.theme-ice {
+    background-image: url("../img/ice.shader-bg.jpg");
+}
+.theme-ice .subscription-form-email:focus {
+    border-color: #56828b;
+}
+.theme-ice .subscription-form-submit {
+    background: none repeat scroll 0 0 #56828b;
+}
+.theme-ice .subscription-form-submit:hover, .theme-ice .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #497078;
+}
+.theme-ice .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #38565c;
+}
+.theme-ice .social-links > a:hover, .theme-ice .social-links > a:focus {
+    background: none repeat scroll 0 0 #56828b;
+}
+.theme-nature {
+    background-image: url("../img/nature.shader-bg.jpg");
+}
+.theme-nature .subscription-form-email:focus {
+    border-color: #00b159;
+}
+.theme-nature .subscription-form-submit {
+    background: none repeat scroll 0 0 #00b159;
+}
+.theme-nature .subscription-form-submit:hover, .theme-nature .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #00984c;
+}
+.theme-nature .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #00743a;
+}
+.theme-nature .social-links > a:hover, .theme-nature .social-links > a:focus {
+    background: none repeat scroll 0 0 #00b159;
+}
+.theme-light {
+    background-image: url("../img/light.shader-bg.jpg");
+}
+.theme-light .subscription-form-email:focus {
+    border-color: #dbba48;
+}
+.theme-light .subscription-form-submit {
+    background: none repeat scroll 0 0 #dbba48;
+}
+.theme-light .subscription-form-submit:hover, .theme-light .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #c1a01e;
+}
+.theme-light .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #957b17;
+}
+.theme-light .social-links > a:hover, .theme-light .social-links > a:focus {
+    background: none repeat scroll 0 0 #dbba48;
+}
+.theme-darkness {
+    background-image: url("../img/darkness.shader-bg.jpg");
+}
+.theme-darkness .subscription-form-email:focus {
+    border-color: #999;
+}
+.theme-darkness .subscription-form-submit {
+    background: none repeat scroll 0 0 #999;
+}
+.theme-darkness .subscription-form-submit:hover, .theme-darkness .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #777;
+}
+.theme-darkness .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #555;
+}
+.theme-darkness .social-links > a:hover, .theme-darkness .social-links > a:focus {
+    background: none repeat scroll 0 0 #999;
+}
+.theme-candy {
+    background-image: url("../img/candy.shader-bg.jpg");
+}
+.theme-candy .subscription-form-email:focus {
+    border-color: #bf526b;
+}
+.theme-candy .subscription-form-submit {
+    background: none repeat scroll 0 0 #bf526b;
+}
+.theme-candy .subscription-form-submit:hover, .theme-candy .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #9f3c52;
+}
+.theme-candy .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #803143;
+}
+.theme-candy .social-links > a:hover, .theme-candy .social-links > a:focus {
+    background: none repeat scroll 0 0 #bf526b;
+}
+.theme-peach {
+    background-image: url("../img/peach.shader-bg.jpg");
+}
+.theme-peach .subscription-form-email:focus {
+    border-color: #f97c53;
+}
+.theme-peach .subscription-form-submit {
+    background: none repeat scroll 0 0 #f97c53;
+}
+.theme-peach .subscription-form-submit:hover, .theme-peach .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #d75b2d;
+}
+.theme-peach .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #b04922;
+}
+.theme-peach .social-links > a:hover, .theme-peach .social-links > a:focus {
+    background: none repeat scroll 0 0 #f97c53;
+}
+.theme-sea {
+    background-image: url("../img/sea.shader-bg.jpg");
+}
+.theme-sea .subscription-form-email:focus {
+    border-color: #4f9d8b;
+}
+.theme-sea .subscription-form-submit {
+    background: none repeat scroll 0 0 #4f9d8b;
+}
+.theme-sea .subscription-form-submit:hover, .theme-sea .subscription-form-submit:focus {
+    background: none repeat scroll 0 0 #489181;
+}
+.theme-sea .subscription-form-submit:active {
+    background: none repeat scroll 0 0 #3e796b;
+}
+.theme-sea .social-links > a:hover, .theme-sea .social-links > a:focus {
+    background: none repeat scroll 0 0 #4f9d8b;
+}
