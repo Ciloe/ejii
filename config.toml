@@ -1,0 +1,33 @@
+baseURL = "https://escrichjimmy.fr/"
+languageCode = "en"
+defaultContentLanguage = "fr"
+title = "ESCRICH Jimmy"
+theme = "stip"
+disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
+disableLanguages = ["fr", "en"]
+
+[Author]
+    name = "Jimmy ESCRICH"
+    bio = "A professional code generator"
+
+[params]
+    [[params.links]]
+        iconset = "fas"
+        icon = "envelope"
+        title = "E-mail"
+        url = "contact@escrihjimmy.fr"
+
+    [[params.links]]
+        icon = "github"
+        title = "Github"
+        url = "https://github.com/Ciloe"
+
+    [[params.links]]
+        icon = "twitter"
+        title = "Twitter"
+        url = "https://twitter.com/escrichjimmy"
+
+    [[params.links]]
+        icon = "linkedin"
+        title = "LinkedIn"
+        url = "https://www.linkedin.com/in/jimmy-escrich-75241161/"
